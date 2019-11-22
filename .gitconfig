@@ -1,0 +1,12 @@
+[user]
+	name = Shawn Ligocki
+	email = sligocki@cornell.edu
+[push]
+	default = simple
+[color]
+	ui = auto
+[alias]
+	b = branch
+	ci = commit
+	co = checkout
+	st = status
