@@ -2,6 +2,8 @@ export PS1="\n[\e[1;31m\]\u\[\e[m\]@\[\e[0;32m\]\h\[\e[m\] \[\e[0;33m\]\t\[\e[m\
 
 export EDITOR=nano
 
+export PATH=$HOME/.local/bin:$PATH
+
 promptFunc()
 {
   echo "$(date +%Y-%m-%d--%H-%M-%S) $(hostname) $PWD $(history 1)" >> ~/.full_history
