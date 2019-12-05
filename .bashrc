@@ -2,7 +2,7 @@ export PS1="\n[\e[1;31m\]\u\[\e[m\]@\[\e[0;32m\]\h\[\e[m\] \[\e[0;33m\]\t\[\e[m\
 
 export EDITOR=nano
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/shell_configs/bin:$HOME/.local/bin:$PATH
 
 promptFunc()
 {
