@@ -12,7 +12,6 @@ PROMPT_COMMAND=promptFunc
 alias hist="cat ~/.full_history"
 
 # Custom aliases
-alias ls="ls -G"
 alias l=ls
 alias ll="ls -l"
 alias grep="grep --color=auto"
