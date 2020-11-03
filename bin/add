@@ -1,0 +1,4 @@
+#!/usr/bin/env awk -f
+
+{ n += $1 }
+END { print n }

@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+# Join multiple lines into a single string using a configurable separator.
+
+import argparse
+import sys
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("sep", nargs="?", default="")
+args = parser.parse_args()
+
+
+print(args.sep.join(line.strip() for line in sys.stdin.readlines()))
