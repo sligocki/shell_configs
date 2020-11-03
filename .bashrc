@@ -19,6 +19,8 @@ alias l=ls
 alias ll="ls -l"
 alias grep="grep --color=auto"
 
+alias R="R --no-save --no-restore-data --no-restore"
+
 # Slurm formatting
 alias squeue="squeue --format='%18i %10P %7v %20j %8T %.7M %.6D %.4C %.5y %.6Q  %R' --user=$USER"
 alias sinfo="sinfo --format='%9P %.5a %.10l %.5D %.4c  %7t %N'"
