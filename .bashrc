@@ -22,6 +22,7 @@ alias grep="grep --color=auto"
 alias R="R --no-save --no-restore-data --no-restore"
 
 # Slurm formatting
-alias squeue="squeue --format='%18i %10P %7v %20j %8T %.7M %.6D %.4C %.5y %.6Q  %R' --user=$USER"
+alias squeue="squeue --format='%8F %10K %12P %3v %25j %4T %.7M %.4C %.5y %.6Q  %R' --user=$USER"
 alias sinfo="sinfo --format='%9P %.5a %.10l %.5D %.4c  %7t %N'"
-export SACCT_FORMAT="jobid%-25,jobname%-20,ncpus%3,nnodes%3,elapsed,state,exitcode,start"
+export SACCT_FORMAT="jobid%-12,jobname%-20,ncpus%3,elapsed,state,exitcode,start,nodelist%5"
+alias supdate="scontrol update job"
