@@ -19,6 +19,9 @@ alias l=ls
 alias ll="ls -l"
 alias grep="grep --color=auto"
 
+alias python=python3
+alias pip="python -m pip"
+
 alias R="R --no-save --no-restore-data --no-restore"
 
 # Slurm formatting
