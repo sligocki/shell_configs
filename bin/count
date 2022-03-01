@@ -1,4 +1,4 @@
 #!/usr/bin/awk -f
 
 { a[$0] += 1 }
-END { for (x in a) print x, a[x] }
+END { for (x in a) print a[x], x }
