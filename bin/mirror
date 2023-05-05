@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+# SCP file from one server to another preserving path.
+#   Usage: mirror [from|to] server path/to/file.ext
+
+import argparse
+from pathlib import Path
+import subprocess
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("direction", choices=["from", "to"])
+parser.add_argument("remote")
+parser.add_argument("path", type=Path,
+                    help='Path to file to copy relative to home dir. Format may be either "~/path/to/file.ext" or "path/to/file.ext".')
+args = parser.parse_args()
+
+local_path = Path.home() / args.path.expanduser()
+rel_path = local_path.relative_to(Path.home())
+
+if args.direction == "from":
+  # Make sure local dir exists.
+  local_dir = local_path.parent
+  local_dir.mkdir(parents=True, exist_ok=True)
+  assert local_dir.exists, local_dir
+
+  # Copy
+  subprocess.run(["scp", f"{args.remote}:{rel_path}", f"{local_path}"])
+
+else:
+  assert args.direction == "to"
+  # Make sure remote dir exists.
+  rel_dir = rel_path.parent
+  subprocess.run(["ssh", args.remote, "mkdir", "-p", rel_dir])
+
+  # Copy
+  subprocess.run(["scp", f"{local_path}", f"{args.remote}:{rel_path}"])
