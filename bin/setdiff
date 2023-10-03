@@ -4,6 +4,7 @@
 import argparse
 import os
 from pathlib import Path
+import shutil
 import sys
 import tempfile
 
@@ -19,7 +20,8 @@ args = parser.parse_args()
 
 if args.in_place:
   # Write to temporary output file then move it.
-  out_file, temp_path = tempfile.mkstemp(text=True)
+  temp_dir = args.main_file.parent
+  out_file, temp_path = tempfile.mkstemp(dir=temp_dir, text=True)
   out_file = os.fdopen(out_file, "w")
   temp_path = Path(temp_path)
 else:
@@ -37,5 +39,5 @@ with open(args.main_file, "r") as f:
 
 if args.in_place:
   # Replace input file (if in-place).
-  temp_path.replace(args.main_file)
+  shutil.move(temp_path, args.main_file)
   out_file.close()
