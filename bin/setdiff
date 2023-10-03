@@ -2,15 +2,28 @@
 # cat all lines of first file that are not in second file.
 
 import argparse
+import os
 from pathlib import Path
 import sys
+import tempfile
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("main_file", type=Path)
 parser.add_argument("subtract_file", type=Path)
+
+parser.add_argument("--in-place", "-i", action="store_true",
+                    help="Update main_file in-place.")
 args = parser.parse_args()
 
+
+if args.in_place:
+  # Write to temporary output file then move it.
+  out_file, temp_path = tempfile.mkstemp(text=True)
+  out_file = os.fdopen(out_file, "w")
+  temp_path = Path(temp_path)
+else:
+  out_file = sys.stdout
 
 subtract = set()
 with open(args.subtract_file, "r") as f:
@@ -20,4 +33,9 @@ with open(args.subtract_file, "r") as f:
 with open(args.main_file, "r") as f:
   for line in f:
     if line not in subtract:
-      sys.stdout.write(line)
+      out_file.write(line)
+
+if args.in_place:
+  # Replace input file (if in-place).
+  temp_path.replace(args.main_file)
+  out_file.close()
