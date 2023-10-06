@@ -4,6 +4,8 @@ export EDITOR=nano
 
 export PATH=$HOME/shell_configs/bin:$HOME/.local/bin:$PATH
 
+umask 0022
+
 promptFunc()
 {
   echo "$(date +%Y-%m-%d--%H-%M-%S) $(hostname) $PWD $(history 1)" >> ~/.full_history
