@@ -1,7 +1,6 @@
 # Basic user stuff
 export EDITOR=nano
-export PATH=$HOME/shell_configs/bin:$HOME/.local/bin:$PATH
-# export PS1="\n[\e[1;31m\]\u\[\e[m\]@\[\e[0;32m\]\h\[\e[m\] \[\e[0;33m\]\t\[\e[m\] \[\e[0;34m\]\w\[\e[m\]]\n$ "
+export PATH=$HOME/shell_configs/bin:$HOME/local/bin:$HOME/.local/bin:$PATH
 
 # ZSH various
 ZSH_THEME="robbyrussell"
