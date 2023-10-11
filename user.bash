@@ -13,9 +13,6 @@ promptFunc()
 PROMPT_COMMAND=promptFunc
 alias hist="cat ~/.full_history"
 
-# Fixer util for SSH woes.
-alias fix-ssh="source ~/shell_configs/fix-ssh"
-
 # Custom aliases
 alias ls="ls --color=auto --group-directories-first"
 alias ll="ls -l"

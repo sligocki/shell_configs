@@ -17,7 +17,22 @@ setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
 export SAVEHIST=1000000000
 
+# Save our own version of history.
+#   See: https://www.jefftk.com/p/logging-shell-history-in-zsh
+precmd() {
+  echo "$(date +%Y-%m-%d--%H-%M-%S) $(hostname) $PWD $(history -1)" \
+    >> ~/.full_history
+}
+alias hist="cat ~/.full_history"
+
 # Aliases
+if [[ $(uname) == "Darwin" ]]; then
+  alias ls="ls -HF --color=auto"
+else
+  alias ls="ls -HF --color=auto --group-directories-first"
+fi
+
+alias ll="ls -al"
 alias python="python3"
 alias pip="python -m pip"
 alias R="R --no-save --no-restore-data --no-restore"
