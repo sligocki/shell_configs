@@ -2,18 +2,24 @@
 export EDITOR=nano
 export PATH=$HOME/shell_configs/bin:$HOME/local/bin:$HOME/.local/bin:$PATH
 
+PROMPT="%{$fg[cyan]%}$USER%{$fg[white]%}@%{$fg[red]%}%m ${PROMPT}"
+
 # ZSH various
 ZSH_THEME="robbyrussell"
-CASE_SENSITIVE="true"
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 zstyle ':omz:update' mode auto      # update automatically without asking
 HIST_STAMPS="yyyy-mm-dd"
 
+unsetopt auto_remove_slash
+unsetopt beep
+setopt complete_in_word  # https://zsh.sourceforge.io/FAQ/zshfaq04.html#l50
+# CASE_SENSITIVE="true"
+
 # ZSH: Improve history
-setopt INC_APPEND_HISTORY
-setopt EXTENDED_HISTORY
+setopt inc_append_history
+setopt extended_history
 export SAVEHIST=1000000000
 
 # Save our own version of history.
