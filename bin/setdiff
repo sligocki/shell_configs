@@ -30,11 +30,11 @@ else:
 subtract = set()
 with open(args.subtract_file, "r") as f:
   for line in f:
-    subtract.add(line)
+    subtract.add(line.strip())
 
 with open(args.main_file, "r") as f:
   for line in f:
-    if line not in subtract:
+    if line.strip() not in subtract:
       out_file.write(line)
 
 if args.in_place:
