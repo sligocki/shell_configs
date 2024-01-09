@@ -1,8 +1,15 @@
-#!/usr/bin/awk -f
+#!/usr/bin/env python3
+# Count number of repeats for each line in stdin. Like `sort | uniq -c`. Ignores leading and trailing whitespace.
 
-{
-  # Trim leading and trailing whitespace first.
-  sub(/^ */, ""); sub(/ *$/, "");
-  a[$0] += 1;
-}
-END { for (x in a) print a[x], x }
+import collections
+import sys
+
+
+vals = collections.Counter()
+for line in sys.stdin:
+  # Ignore leading/trailing whitespace.
+  vals[line.strip()] += 1
+
+# Print from most common to least
+for val, count in vals.most_common():
+  print(f"{count:6d} {val}")
