@@ -1,0 +1,4 @@
+#!/usr/bin/awk -f
+
+{ t += $1; n += 1 }
+END { print t / n }
