@@ -43,7 +43,8 @@ alias pip="python -m pip"
 alias R="R --no-save --no-restore-data --no-restore"
 
 # Slurm formatting
-alias squeue="squeue --format='%8F %10K %12P %3v %25j %4T %.7M %.4C %.5y %.6Q  %R' --user=$USER"
+alias squeue="squeue --format='%9F %8K %12P %3v %4u %25j %4T %.7M %.4C %.5y %.6Q  %R'"
+alias sq="squeue --user=$USER"
 alias sinfo="sinfo --format='%9P %.5a %.10l %.5D %.4c  %7t %N'"
 export SACCT_FORMAT="jobid%-20,jobname%-20,ncpus%3,elapsed,state,exitcode,start,nodelist%5"
 alias supdate="scontrol update job"
