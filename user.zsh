@@ -37,7 +37,7 @@ else
   alias ls="ls -HF --color=auto --group-directories-first"
 fi
 
-alias ll="ls -al"
+alias ll="ls -alh"
 alias python="python3"
 alias pip="python -m pip"
 alias R="R --no-save --no-restore-data --no-restore"
