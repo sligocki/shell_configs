@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# cat all lines common to both files
+
+import argparse
+from pathlib import Path
+import sys
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("file1", type=Path)
+parser.add_argument("file2", type=Path)
+args = parser.parse_args()
+
+out_file = sys.stdout
+
+data1 = set()
+with open(args.file1, "r") as f:
+  for line in f:
+    data1.add(line.strip())
+
+with open(args.file2, "r") as f:
+  for line in f:
+    if line.strip() in data1:
+      out_file.write(line)
