@@ -4,6 +4,11 @@ export PATH=$HOME/shell_configs/bin:$HOME/local/bin:$HOME/.local/bin:$PATH
 
 PROMPT="%{$fg[cyan]%}$USER%{$fg[white]%}@%{$fg[red]%}%m ${PROMPT}"
 
+# Oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+plugins=(git direnv)
+source $ZSH/oh-my-zsh.sh
+
 # ZSH various
 ZSH_THEME="robbyrussell"
 # Uncomment the following line to use hyphen-insensitive completion.
@@ -51,10 +56,3 @@ alias sq="squeue --user=$USER"
 alias sinfo="sinfo --format='%9P %.5a %.10l %.5D %.4c  %7t %N'"
 export SACCT_FORMAT="jobid%-20,jobname%-20,ncpus%3,elapsed,state,exitcode,start,nodelist%5"
 alias supdate="scontrol update job"
-
-# Fix ssh issues on AIDA
-if [[ $(hostname) == aida.cac.cornell.edu ]]; then
-  eval $(ssh-agent)
-  ssh-add ~/.ssh/id_rsa
-  ssh-add -l
-fi
