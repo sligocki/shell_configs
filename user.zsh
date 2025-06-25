@@ -30,6 +30,9 @@ precmd() {
 }
 alias hist="cat ~/.full_history"
 
+# Enable tab completion for hostnames from .ssh/config
+zstyle ':completion:*:ssh:*' hosts
+
 # Aliases
 if [[ $(uname) == "Darwin" ]]; then
   alias ls="ls -HF --color=auto"
