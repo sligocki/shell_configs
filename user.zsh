@@ -2,7 +2,7 @@
 export EDITOR=nano
 export PATH=$HOME/shell_configs/bin:$HOME/local/bin:$HOME/.local/bin:$PATH
 
-PROMPT="%{$fg[cyan]%}$USER%{$fg[white]%}@%{$fg[red]%}%m ${PROMPT}"
+PROMPT="%{$fg[cyan]%}$USER%{$fg[white]%}@%{$fg[red]%}%m"
 
 # Oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
