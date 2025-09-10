@@ -1,6 +1,7 @@
 # Basic user stuff
 export EDITOR=nano
 export PATH=$HOME/shell_configs/bin:$HOME/local/bin:$HOME/.local/bin:$PATH
+export LANG="en_US.UTF-8"
 
 PROMPT="%{$fg[cyan]%}$USER%{$fg[white]%}@%{$fg[red]%}%m"
 
