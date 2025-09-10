@@ -1,8 +1,10 @@
 #!/bin/bash
 # Install config on new system
 
-# TODO: Install user.zsh
-# TODO: Install user.bash
+# Install user.zsh
+echo "source $HOME/shell_configs/user.zsh" >> ~/.zshrc
+# Install user.bash
+echo "source $HOME/shell_configs/user.bash" >> ~/.bashrc
 
 # Install gitconfig
 rm -f ~/.gitconfig
