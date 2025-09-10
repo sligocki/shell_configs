@@ -2,6 +2,9 @@
 export EDITOR=nano
 export PATH=$HOME/shell_configs/bin:$HOME/local/bin:$HOME/.local/bin:$PATH
 
+# Add username and host to beginning of prompt
+export PROMPT="%{$fg[cyan]%}$USER%{$fg[white]%}@%{$fg[red]%}%m $PROMPT"
+
 # Oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(git direnv)
