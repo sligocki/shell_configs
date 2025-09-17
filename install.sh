@@ -15,3 +15,6 @@ ln -s ~/shell_configs/gitconfig ~/.gitconfig
 # Install Rprofile
 rm -f ~/.Rprofile
 ln -s ~/shell_configs/Rprofile ~/.Rprofile
+
+rm -f ~/.screenrc
+ln -s ~/shell_configs/screenrc ~/.screenrc
